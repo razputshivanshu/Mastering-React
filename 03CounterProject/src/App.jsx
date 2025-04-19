@@ -5,13 +5,24 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(5);
+  const [error, setError] = useState(null);
 
   function incrementValue() {
-    setCount(count+1);
+    if (count < 20) {
+      setCount(count + 1);
+      setError(null);
+    }
+    else
+      setError("Value can't be greater than 20!!!")
   }
 
   function decrementValue() {
-    setCount(count - 1);
+    if (count >= 1) {
+      setCount(count - 1);
+      setError(null);
+    }
+    else
+      setError("Value can't be negative!!");
   }
 
   return (
@@ -23,9 +34,9 @@ function App() {
       <br />
       <button onClick={decrementValue}>Decrease</button>
 
-      <footer>{count}</footer>
-
-      <p>{count}</p>
+      {
+        error && (<div>{error}</div>)
+     }
     </>
   )
 }
