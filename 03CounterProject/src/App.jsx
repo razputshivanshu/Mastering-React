@@ -28,6 +28,9 @@ function App() {
   return (
     <>
       <h1>Chai aur React</h1>
+      <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
       <h2>Counter value: {count}</h2>
       <button onClick={incrementValue}>Increase</button>
       <br />
